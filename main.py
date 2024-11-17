@@ -2,8 +2,6 @@ import requests
 import os
 from dotenv import load_dotenv
 import time
-import base64
-
 
 load_dotenv()
 access_token = os.getenv("ACCESS_TOKEN")

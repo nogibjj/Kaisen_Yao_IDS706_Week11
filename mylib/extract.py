@@ -1,8 +1,6 @@
 import requests
 import os
-import io
 
-from zipfile import ZipFile
 
 FILESTORE_PATH = "dbfs:/FileStore/IDS_hwk"
 
@@ -37,7 +35,7 @@ def extract(
             csv_content, csv_filename = download_and_extract_csv(url)
             if csv_content is not None:
                 csv_path = f"{directory}/{csv_filename}"
-                dbutils.fs.put(csv_path, csv_content, overwrite)
+                dbutils.fs.put(csv_path, csv_content, overwrite)  # noqa: F821
                 return csv_path
         except Exception as e:
             print(f"Error in Databricks environment: {str(e)}")
