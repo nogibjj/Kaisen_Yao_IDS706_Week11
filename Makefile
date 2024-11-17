@@ -8,10 +8,7 @@ format:
 	black *.py 
 
 lint:
-	# Disable comment to test speed
-	# pylint --disable=R,C --ignore-patterns=test_.*?py *.py mylib/*.py
-	# Ruff linting is 10-100X faster than pylint
-	ruff check *.py mylib/*.py
+	ruff check --line-length 320 *.py mylib/*.py
 
 container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
